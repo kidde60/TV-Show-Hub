@@ -1,32 +1,78 @@
-body {
-    margin: 0;
-    padding: 0;
-}
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
-a {
-    text-decoration: none;
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: 'Inter', sans-serif;
+	text-decoration: none;
+	list-style: none;
 }
 
 .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 5%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px 5%;
+	background-color: gray;
 }
 
 .navbar {
-    width: 60%;
+	width: 60%;
 }
 
 .nav-list {
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+	list-style: none;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.container {
+	padding: 5% 5%;
+
+}
+
+.container ul {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	gap: 2rem;
+}
+
+.container li {
+	display: flex;
+	flex-direction: column;
+	border: 3px solid rgb(108, 148, 0);
+	border-radius: 8px;
+	background-color: rgb(108, 148, 0);
+	color: white;
+}
+
+.container li img {
+	width: 100%;
+	border-radius: 5px;
+}
+
+.card-text {
+	padding: 2%;
+}
+
+.title-like {
+	display: flex;
+	justify-content: space-between;
+}
+
+.title {
+	width: 75%;
+}
+
+hr {
+	border-top: 1px solid greenyellow;
+	border-bottom: none;
 }
 
 footer {
-    background-color: grey;
-    color: white;
-    padding: 30px 5%;
+	background-color: grey;
+	color: white;
+	padding: 30px 5%;
 }
