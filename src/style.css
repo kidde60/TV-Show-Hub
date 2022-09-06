@@ -24,3 +24,9 @@ a {
     justify-content: space-between;
     align-items: center;
 }
+
+footer {
+    background-color: grey;
+    color: white;
+    padding: 30px 5%;
+}
