@@ -1,5 +1,5 @@
 import './style.css';
-const path = 'https://imdb8.p.rapidapi.com/auto-complete?q=cruise';
+const path = 'https://imdb8.p.rapidapi.com/auto-complete?q=lies';
 const container = document.querySelector('.container')
 const list = document.createElement('ul')
 
