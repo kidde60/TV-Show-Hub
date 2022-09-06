@@ -1,7 +1,15 @@
 import './style.css';
+import Logo from './assets/logo.svg';
+
 const path = 'https://imdb8.p.rapidapi.com/auto-complete?q=lies';
 const container = document.querySelector('.container')
+const navbar = document.querySelector('.navbar a')
 const list = document.createElement('ul')
+
+const pageLogo = document.createElement('img');
+pageLogo.setAttribute('class', 'logo');
+pageLogo.setAttribute('src', Logo);
+navbar.appendChild(pageLogo)
 
 const getMovies = async () => {
   const options = {
