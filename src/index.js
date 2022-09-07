@@ -49,3 +49,4 @@ const getMovies = async () => {
     });
 };
 getMovies();
+

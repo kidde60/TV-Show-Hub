@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
 
 * {
@@ -10,6 +11,7 @@
 }
 
 a {
+text-decoration: none;
   color: rgb(108, 148, 0);
 }
 
@@ -23,6 +25,7 @@ a {
 }
 
 .navbar {
+width: 60%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -30,7 +33,9 @@ a {
 }
 
 .nav-list {
+list-style: none;
   display: flex;
+  justify-content: space-between;
   flex-direction: row;
   align-items: center;
   gap: 5rem;
@@ -95,4 +100,5 @@ footer {
   color: white;
   padding: 30px 5%;
   font-size: 0.8rem;
-}
+  }
+  
