@@ -41,7 +41,7 @@ const getMovies = async () => {
                 </p>
               </div>
               <hr>
-              <button class="btn">Comments</button>
+              <button class="openBtn">Comments</button>
             </div>`;
         list.appendChild(listItem);
         container.appendChild(list);
@@ -49,4 +49,6 @@ const getMovies = async () => {
     });
 };
 getMovies();
+
+
 
