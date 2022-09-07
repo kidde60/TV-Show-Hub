@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: path.resolve(__dirname, "src/index.js"),
+  entry: path.resolve(__dirname, 'src/index.js'),
   output: {
     filename: 'main.js',
     path: path.resolve(__dirname, 'dist'),
@@ -23,7 +23,7 @@ module.exports = {
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource', // for fonts
       },
-    ]
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -31,5 +31,5 @@ module.exports = {
       title: 'Movies',
       template: './src/index.html',
     }),
-  ]
+  ],
 };
