@@ -19,7 +19,7 @@ module.exports = {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset/resource', // for images
       },
-    ]
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -27,5 +27,5 @@ module.exports = {
       title: 'Movies',
       template: './src/index.html',
     }),
-  ]
+  ],
 };
