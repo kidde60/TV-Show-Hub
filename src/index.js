@@ -1,7 +1,7 @@
 import './style.css';
 import Logo from './assets/logo.svg';
 
-const path = 'https://imdb8.p.rapidapi.com/auto-complete?q=lies';
+const path = 'https://imdb8.p.rapidapi.com/auto-complete?q=friends';
 const container = document.querySelector('.container');
 const navbar = document.querySelector('.navbar a');
 const list = document.createElement('ul');
@@ -50,5 +50,11 @@ const getMovies = async () => {
 };
 getMovies();
 
+const openBtn = document.querySelector('.openBtn');
+const modalContainer = document.querySelector('.modal-container');
+openBtn.addEventListener('click', () => {
+  modalContainer.classList.add('show');
+})
 
+const closeIcon = doocument.querySelector('.close-modal');
 
