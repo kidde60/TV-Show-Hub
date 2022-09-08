@@ -191,7 +191,7 @@ footer {
 }
 
 .single-comment {
-  sborder-bottom: 1px solid lightgray;
+  /* border-bottom: 1px solid lightgray; */
   padding: 4px 10px;
 }
 
@@ -216,5 +216,9 @@ textarea {
   padding: 5px;
   border: 1px solid gray;
   border-radius: 4px;
-  background-color: darkgray;
+  /* background-color: darkgray; */
+}
+
+.fa-star {
+  color: orange;
 }
