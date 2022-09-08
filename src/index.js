@@ -1,39 +1,36 @@
-import './style.css';
-import Logo from './assets/logo.svg';
+// import './style.css';
+// import Logo from './assets/logo.svg';
 
-const path = 'https://imdb8.p.rapidapi.com/auto-complete?q=friends';
+// const path = 'https://imdb8.p.rapidapi.com/auto-complete?q=friends';
 const container = document.querySelector('.container');
 const navbar = document.querySelector('.navbar a');
 const list = document.createElement('ul');
 
-const pageLogo = document.createElement('img');
-pageLogo.setAttribute('class', 'logo');
-pageLogo.setAttribute('src', Logo);
-navbar.appendChild(pageLogo);
+// const pageLogo = document.createElement('img');
+// pageLogo.setAttribute('class', 'logo');
+// pageLogo.setAttribute('src', Logo);
+// navbar.appendChild(pageLogo);
+const url = 'https://api.tvmaze.com/shows';
+const getData = async () => {
+  let data = await fetch(url);
+  data = await data.json();
 
-const getMovies = async () => {
-  const options = {
-    method: 'GET',
-    headers: {
-      'X-RapidAPI-Key': '4e9eb6ac39mshafc132e8850bb83p183f0bjsn09e883c16e80',
-      'X-RapidAPI-Host': 'imdb8.p.rapidapi.com',
-    },
-  };
+  return data.slice(3, 15);
+}
 
-  fetch(path, options)
-    .then((response) => response.json())
-    .then((data) => {
-      const allMovies = data.d;
-      allMovies.forEach((card) => {
-        const listItem = document.createElement('li');
-        listItem.innerHTML = '';
-        listItem.innerHTML = `
+const display = async () => {
+  const data = await getData()
+  data.forEach((card) => {
+    // console.log(card)
+    const listItem = document.createElement('li');
+    listItem.innerHTML = '';
+    listItem.innerHTML = `
           <div>
-            <img src="${card.i.imageUrl}" alt="${card.l}">
+            <img src="${card.image.medium}" alt="${card.name}">
             <div class="card-text">
               <div class="title-like">
                 <p class="title">
-                  ${card.l}<br>${card.y}
+                  ${card.name}
                 </p>
                 <p class="likes">
                   Like
@@ -43,18 +40,15 @@ const getMovies = async () => {
               <hr>
               <button class="openBtn">Comments</button>
             </div>`;
-        list.appendChild(listItem);
-        container.appendChild(list);
-      });
-    });
-};
-getMovies();
+    list.appendChild(listItem);
+    container.appendChild(list);
+    // const commentBtn = document.querySelectorAll('.openBtn')
+    // commentBtn.forEach((btn) => {
+    //   btn.addEventListener('click',)
+    // })
+  })
 
-const openBtn = document.querySelector('.openBtn');
-const modalContainer = document.querySelector('.modal-container');
-openBtn.addEventListener('click', () => {
-  modalContainer.classList.add('show');
-})
+}
+display()
 
-const closeIcon = doocument.querySelector('.close-modal');
 
