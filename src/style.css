@@ -11,7 +11,7 @@
 }
 
 a {
-text-decoration: none;
+  text-decoration: none;
   color: rgb(108, 148, 0);
 }
 
@@ -25,7 +25,6 @@ text-decoration: none;
 }
 
 .navbar {
-width: 60%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -33,7 +32,7 @@ width: 60%;
 }
 
 .nav-list {
-list-style: none;
+  list-style: none;
   display: flex;
   justify-content: space-between;
   flex-direction: row;
@@ -43,6 +42,7 @@ list-style: none;
 
 .container {
   padding: 5% 5%;
+  background-color: lightgray;
 }
 
 .container ul {
@@ -60,6 +60,10 @@ list-style: none;
   color: white;
 }
 
+.modal img {
+  width: 100%;
+}
+
 .container li img {
   width: 100%;
   border-radius: 5px;
@@ -72,6 +76,16 @@ list-style: none;
   padding: 3%;
 }
 
+hr {
+  border-top: 1px solid gray;
+  border-bottom: none;
+}
+
+.card-text hr {
+  border-top: 1px solid lightgray;
+  border-bottom: none;
+}
+
 .title-like {
   display: flex;
   justify-content: space-between;
@@ -81,18 +95,26 @@ list-style: none;
   width: 75%;
 }
 
-hr {
-  border-top: 1px solid greenyellow;
-  border-bottom: none;
-}
-
-.btn {
+.openBtn {
   padding: 3% 8%;
   width: fit-content;
-  border: 1px solid greenyellow;
+  border: 1px solid white;
   border-radius: 2px;
   color: white;
   background-color: transparent;
+}
+
+form button {
+  padding: 10px 10px;
+  width: 100px;
+  border: none;
+  border-radius: 2px;
+  color: white;
+  background-color: rgb(108, 148, 0);
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 footer {
@@ -100,5 +122,103 @@ footer {
   color: white;
   padding: 30px 5%;
   font-size: 0.8rem;
-  }
-  
+}
+
+.modal-container {
+  position: fixed;
+  z-index: 100;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  padding: 6%;
+  background-color: rgba(0, 0, 0, 0.822);
+  display: none;
+}
+
+.modal {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr;
+  gap: 2%;
+  background-color: lightgray;
+  padding: 2%;
+  border-radius: 10px;
+}
+
+.modal h1,
+.modal h2,
+.modal h3,
+.modal h4,
+.modal h5 {
+  margin: 0;
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.modal-title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-title a:hover {
+  color: darkgreen;
+}
+
+.modal-sub-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.genre {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.genre-tag {
+  background-color: rgb(108, 148, 0);
+  padding: 3px 10px;
+  width: fit-content;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: white;
+}
+
+.all-comments {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.single-comment {
+  /* border-bottom: 1px solid lightgray; */
+  padding: 4px 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input,
+textarea {
+  font-size: inherit;
+  padding: 5px;
+  border: 1px solid gray;
+  border-radius: 4px;
+
+  /* background-color: darkgray; */
+}
+
+.fa-star {
+  color: orange;
+}
