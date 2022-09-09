@@ -60,6 +60,10 @@ a {
   color: white;
 }
 
+.modal img {
+  width: 100%;
+}
+
 .container li img {
   width: 100%;
   border-radius: 5px;
@@ -70,6 +74,11 @@ a {
   flex-direction: column;
   gap: 1rem;
   padding: 3%;
+}
+
+hr {
+  border-top: 1px solid gray;
+  border-bottom: none;
 }
 
 .card-text hr {
@@ -86,11 +95,6 @@ a {
   width: 75%;
 }
 
-hr {
-  border-top: 1px solid gray;
-  border-bottom: none;
-}
-
 .openBtn {
   padding: 3% 8%;
   width: fit-content;
@@ -98,6 +102,15 @@ hr {
   border-radius: 2px;
   color: white;
   background-color: transparent;
+}
+
+form button {
+  padding: 10px 10px;
+  width: 100px;
+  border: none;
+  border-radius: 2px;
+  color: white;
+  background-color: rgb(108, 148, 0);
 }
 
 button:hover {
@@ -133,17 +146,12 @@ footer {
   border-radius: 10px;
 }
 
-.modal img {
-  width: 100%;
-}
-
-.modal h1, 
-.modal h2, 
-.modal h3, 
+.modal h1,
+.modal h2,
+.modal h3,
 .modal h4,
 .modal h5 {
   margin: 0;
-  
 }
 
 .modal-content {
@@ -201,21 +209,13 @@ form {
   gap: 10px;
 }
 
-form button {
-  padding: 10px 10px;
-  width: 100px;
-  border: none;
-  border-radius: 2px;
-  color: white;
-  background-color: rgb(108, 148, 0);
-}
-
 input,
 textarea {
   font-size: inherit;
   padding: 5px;
   border: 1px solid gray;
   border-radius: 4px;
+
   /* background-color: darkgray; */
 }
 

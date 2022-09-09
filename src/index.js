@@ -1,3 +1,5 @@
+/* eslint-disable no-use-before-define */
+
 import './style.css';
 import Logo from './assets/logo.svg';
 
@@ -12,15 +14,15 @@ navbar.appendChild(pageLogo);
 
 const container = document.querySelector('.container');
 const list = document.createElement('ul');
-const popup = document.querySelector('.modal-container')
+const popup = document.querySelector('.modal-container');
 const url = 'https://api.tvmaze.com/shows';
 const getData = async () => {
   let data = await fetch(url);
   data = await data.json();
   return data.slice(13);
-}
+};
 const display = async () => {
-  const data = await getData()
+  const data = await getData();
   data.forEach((card) => {
     // console.log(card)
     const listItem = document.createElement('li');
@@ -29,9 +31,9 @@ const display = async () => {
       <img src="${card.image.medium}" alt="${card.name}">
       <div class="card-text">
         <div class="title-like">
-          <h3 class="title">
+          <p class="title">
             ${card.name}
-          </h3>
+          </p>
           <p class="likes">
             Like
             <i class="far fa-heart"></i>
@@ -42,25 +44,23 @@ const display = async () => {
       </div>`;
     list.appendChild(listItem);
     container.appendChild(list);
-  })
-  
-  const commentBtn = document.querySelectorAll('.openBtn')
+  });
+
+  const commentBtn = document.querySelectorAll('.openBtn');
   commentBtn.forEach((btn) => {
     btn.addEventListener('click', (e) => {
-      const id = e.target.id;
+      const { id } = e.target;
       popup.style.display = 'block';
-      getOneItem(id)
-    })
-  })
-}
-display()
+      getOneItem(id);
+    });
+  });
+};
+display();
 
 const getOneItem = async (id) => {
   const response = await fetch(`https://api.tvmaze.com/shows/${id}`)
-    .then((result) => result.json())
-  console.log(response);
+    .then((result) => result.json());
   const card = response;
-  console.log(card)
   const modalContent = document.querySelector('.modal-container');
   modalContent.innerHTML = '';
   modalContent.innerHTML += `
@@ -113,8 +113,8 @@ const getOneItem = async (id) => {
       </div>
     </div>
   </div>`;
-  popup.appendChild(modalContent)
-}
+  popup.appendChild(modalContent);
+};
 
 // const modalContainer = document.querySelectorAll('.modal-container');
 // const closeModal = document.querySelector('.close-modal');
