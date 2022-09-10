@@ -1,9 +1,10 @@
+/* eslint-disable no-use-before-define */
+
 import './style.css';
 
 document.addEventListener('DOMContentLoaded', () => {
   displayMovie();
 });
-
 
 //   Home page
 const movieApi = async () => {
@@ -32,7 +33,6 @@ const displayMovie = async () => {
     const Container = document.querySelector('.modal-container');
     const listItem = document.createElement('div');
 
-
     listItem.innerHTML = '';
     listItem.innerHTML = `<div>
                           <img src=${card.image.original} alt=${card.name}>
@@ -54,7 +54,7 @@ const displayMovie = async () => {
         submitNewLike(id);
         btn.disabled = true;
         button.style.color = 'red';
-      })
+      });
     });
 
     // cardUL.appendChild(cardLI);
@@ -91,16 +91,16 @@ const submitNewLike = async (id) => {
 };
 // popup
 
-const postApp = async () => {
-  const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/', {
-    method: 'POST',
-    headers: {
-      'Content-type': 'application/json; charest=UTF-8',
-    },
-  });
-  const data = await response.json();
-  return data;
-}
+// const postApp = async () => {
+//   const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/', {
+//     method: 'POST',
+//     headers: {
+//       'Content-type': 'application/json; charest=UTF-8',
+//     },
+//   });
+//   const data = await response.json();
+//   return data;
+// };
 
 const postComments = async (id, name, com) => {
   await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/4va6c4ouZmpzSETsANV3/comments', {
@@ -121,7 +121,6 @@ const getComments = async (id) => {
   return response;
 };
 
-
 document.addEventListener('click', async (e) => {
   if (!e.target.matches('.commentBtn')) {
     return;
@@ -133,18 +132,16 @@ document.addEventListener('click', async (e) => {
   const container = document.querySelector('.modal-container');
   container.style.display = 'none';
 
-
   displayCom(comList);
 });
-
 
 // class Popup {
 const getData = async (id) => {
   const movieInfo = await fetch(`https://api.tvmaze.com/shows/${id}`).then((result) => result.json());
   return movieInfo;
-}
+};
 
-const countComments = (number) => number.length
+const countComments = (number) => number.length;
 
 const display = async (movieInfo, id, comList) => {
   const movie = await movieInfo;
@@ -183,8 +180,8 @@ const display = async (movieInfo, id, comList) => {
   close.addEventListener('click', () => {
     document.querySelector('.modal-container').style.display = 'grid';
     document.querySelector('.popup').style.display = 'none';
-  })
-}
+  });
+};
 
 const displayCom = async (MoveInfo) => {
   const commentList = document.querySelector('.display-comments');
