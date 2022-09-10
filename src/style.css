@@ -189,7 +189,7 @@ hr {
   margin-bottom: 4px;
 }
 
-form {
+.form {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -203,7 +203,7 @@ textarea {
   border-radius: 4px;
 }
 
-form button {
+.form button {
   padding: 10px 10px;
   width: 100px;
   border: none;

@@ -150,7 +150,7 @@ const display = async (movieInfo, id, comList) => {
         <ul class ="display-comments">
         </ul>
       </div>
-            <div class = "form" >
+            <div class ="form" >
             <h2> Add a comment </h2>
               <label for="fname">Name:</label><br>
               <input type="text" id="fname" name="fname" placeholder = "Enter your name"><br><br>
