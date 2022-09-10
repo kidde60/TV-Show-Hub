@@ -14,6 +14,7 @@
 ## Live Demo
 
 [Live Demo]()
+[Vide Demo](./video/JSCapstone.mp4)
 
 
 ## Getting Started
