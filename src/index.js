@@ -145,8 +145,13 @@ const display = async (movieInfo, id, comList) => {
           <h1>${movie.name}</h1>
           ${movie.summary}
         </div>
-          
+        <div>
+        <h3 class = "class-heading"> All Comments (${countComments(array)})</h3>
+        <ul class ="display-comments">
+        </ul>
+      </div>
             <div class = "form" >
+            <h2> Add a comment </h2>
               <label for="fname">Name:</label><br>
               <input type="text" id="fname" name="fname" placeholder = "Enter your name"><br><br>
               <label for="comment">Comment:</label><br>
@@ -158,11 +163,7 @@ const display = async (movieInfo, id, comList) => {
         
       </div>
       
-        <div>
-          <h3 class = "class-heading"> All Comments (${countComments(array)})</h3>
-          <ul class ="display-comments">
-          </ul>
-        </div>
+        
       </ul>`;
 
   const close = document.querySelector('.closeBtn');
