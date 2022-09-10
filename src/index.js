@@ -1,89 +1,85 @@
-// import './style.css';
 
 
+document.addEventListener('DOMContentLoaded', () => {
+  displayMovie();
+});
 
-// import Logo from './assets/logo.svg';
 
-// const uniqueID = '41z7rNWXbEPeMpQVJIbo'
+//   Home page
+const movieApi = async () => {
+  const fetchResult = await fetch('https://api.tvmaze.com/shows');
+  const ShowResult = await fetchResult.json();
+  return ShowResult.slice(2, 15);
+};
 
+window.onload = movieApi();
 
-const container = document.querySelector('.container');
-const navbar = document.querySelector('.navbar a');
-const list = document.createElement('ul');
-const popup = document.querySelector('.modal-container')
-// const pageLogo = document.createElement('img');
-// pageLogo.setAttribute('class', 'logo');
-// pageLogo.setAttribute('src', Logo);)
-// navbar.appendChild(pageLogo);
-const url = 'https://api.tvmaze.com/shows';
-const getData = async () => {
-  let data = await fetch(url);
-  data = await data.json();
+const contCount = (array) => array.length;
 
-  return data.slice(3, 15);
-}
-window.onload = getData()
-const movieCount = (arr) => arr.length;
+const displayMovie = async () => {
+  const Movies = await movieApi();
+  const fetchLikes = await fetchLikeApi();
 
-const display = async () => {
-  const data = await getData();
-  const likes = await fetchLikeApi();
-  const movieNumber = document.querySelector('.movie-number');
-  movieNumber.innerHTML = `(${movieCount(data)})`;
-  data.forEach((card) => {
-    const cardLikes = likes.find((like) => like.item_id === card.id)
+  const movieLength = document.querySelector('.movie-number');
+  movieLength.innerText = `Movies(${contCount(Movies)})`;
+
+  Movies.forEach((card) => {
+    const cardLikes = fetchLikes.find((like) => like.item_id === card.id);
     const { id } = card;
+
     let liveCount = +cardLikes?.likes;
-    // console.log(card)
-    const listItem = document.createElement('li');
+
+    const Container = document.querySelector('.modal-container');
+    const listItem = document.createElement('div');
+
+
     listItem.innerHTML = '';
-    listItem.innerHTML = `
-          <div>
-            <img src="${card.image.medium}" alt="${card.name}">
-            <div class="card-text">
-              <div class="title-like">
-                <p class="title">
-                  ${card.name}
-                </p>
-                <p class="likes">
-                  
-                  <i class="far fa-heart"></i>
-                  <p class="likes">${liveCount} Likes</p>
-                </p>
-              </div>
-              <hr>
-              <button class="openBtn" id=${id}>Comments</button>
-            </div>`;
+    listItem.innerHTML = `<div>
+                          <img src=${card.image.original} alt=${card.name}>
+                        </div>
+                        <a href="${card.officialSite}" class="movie-title">${card.name}</a>
+                        <div class="movie-info">
+                          <p>${card.weight}mb</p>
+                          <i class="fa fa-heart"  aria-hidden="true"></i>
+                          <p class = "totalLikes">${liveCount} likes</p>
+                        </div>
+                        <button id = ${id} class = "commentBtn">Comments</button>`;
 
     const likeBtn = listItem.querySelectorAll('.fa-heart');
     likeBtn.forEach((button) => {
       button.addEventListener('click', (btn) => {
-        const liveCountElement = listItem.getElementsByClassName('likes');
+        const liveCountElement = listItem.getElementsByClassName('totalLikes')[0];
         liveCount += 1;
         liveCountElement.innerHTML = `${liveCount} likes`;
         submitNewLike(id);
         btn.disabled = true;
         button.style.color = 'red';
-        location.reload()
-      },
-      )
-    })
-    list.appendChild(listItem);
-    container.appendChild(list);
-  })
+      })
+    });
 
-}
-display()
+    // cardUL.appendChild(cardLI);
+    Container.appendChild(listItem);
 
-const uniqueID = 'MjgCDPvMKfBMbwFq4McF'
+    const totalLikes = document.querySelectorAll('.totalLikes');
+    totalLikes.forEach((like) => {
+      if (like.innerText === 'undefined likes') {
+        like.innerText = '0 like';
+      } else if (like.innerText === '1 likes') {
+        like.innerText = '1 like';
+      }
+    });
+  });
+};
+// likes
+const tvId = 'MjgCDPvMKfBMbwFq4McF';
+
 const fetchLikeApi = async () => {
-  const getLikeResult = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${uniqueID}/likes`)
-    .then((res) => res.json());
+  const getLikeResult = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${tvId}/likes`).then((res) => res.json());
   return getLikeResult;
 };
 
 const submitNewLike = async (id) => {
-  await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${uniqueID}/likes`, {
+  await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${tvId}/likes`, {
     method: 'POST',
     body: JSON.stringify({
       item_id: id,
@@ -93,4 +89,113 @@ const submitNewLike = async (id) => {
     },
   });
 };
+// popup
 
+const postApp = async () => {
+  const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/', {
+    method: 'POST',
+    headers: {
+      'Content-type': 'application/json; charest=UTF-8',
+    },
+  });
+  const data = await response.json();
+  return data;
+}
+
+const postComments = async (id, name, com) => {
+  await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/4va6c4ouZmpzSETsANV3/comments', {
+    method: 'POST',
+    body: JSON.stringify({
+      item_id: id,
+      username: name,
+      comment: com,
+    }),
+    headers: {
+      'Content-type': 'application/json; charset=UTF-8',
+    },
+  });
+};
+
+const getComments = async (id) => {
+  const response = await fetch(`https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/4va6c4ouZmpzSETsANV3/comments?item_id=${id}`).then((res) => res.json());
+  return response;
+};
+
+
+document.addEventListener('click', async (e) => {
+  if (!e.target.matches('.commentBtn')) {
+    return;
+  }
+  const { id } = e.target;
+  const comList = await getComments(id);
+  const MoveInfo = await getData(id);
+  await display(MoveInfo, id, comList);
+  const overlay = document.querySelector('.overlay');
+  const popup = document.querySelector('.popup');
+  popup.classList.add('active');
+
+  displayCom(comList);
+});
+
+
+// class Popup {
+const getData = async (id) => {
+  const movieInfo = await fetch(`https://api.tvmaze.com/shows/${id}`).then((result) => result.json());
+  return movieInfo;
+}
+
+const countComments = (number) => number.length
+
+const display = async (movieInfo, id, comList) => {
+  const movie = await movieInfo;
+  const array = await comList;
+  const popup = document.querySelector('.popup');
+  popup.innerHTML = `
+      <div class="description">
+        <div>
+          <a href="${movie.network.officialSite}"><img src="${movie.image.medium}" class = "image" id = "movie-img" alt=""></a>
+          <div class = "summary-tag">
+          <h1>${movie.name}</h1>
+          ${movie.summary}
+        </div>
+          
+            <div class = "form" >
+              <label for="fname">Name:</label><br>
+              <input type="text" id="fname" name="fname" placeholder = "Enter your name"><br><br>
+              <label for="comment">Comment:</label><br>
+              <textarea name="comment" id="comment" cols="20" rows="3" placeholder = "Enter comment"></textarea>
+              <button id = ${id} class= "submit" type="submit"> Submit</button>
+            </div>
+          
+        </div>
+        
+      </div>
+      
+        <div>
+          <h3 class = "class-heading"> All Comments (${countComments(array)})</h3>
+          <ul class ="display-comments">
+          </ul>
+        </div>
+      </ul>`;
+}
+
+const displayCom = async (MoveInfo) => {
+  const commentList = document.querySelector('.display-comments');
+  commentList.innerHTML = '';
+  const array = await MoveInfo;
+  array.forEach((item) => {
+    commentList.innerHTML += `<li class = "listCom">${item.username}: ${item.comment} <br> :${item.creation_date.slice(-5, -1)}</li>`;
+  });
+};
+document.addEventListener('click', async (e) => {
+  if (!e.target.matches('.submit')) {
+    return;
+  }
+  e.preventDefault();
+  const name = document.getElementById('fname').value;
+  const com = document.getElementById('comment').value;
+  const { id } = e.target;
+  await postComments(id, name, com);
+  const comList = await getComments(id);
+  displayCom(comList);
+});
