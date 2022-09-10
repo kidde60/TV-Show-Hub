@@ -21,7 +21,7 @@ a {
 }
 
 .logo {
-  height: 30px;
+  height: 25px;
 }
 
 .navbar {
@@ -37,21 +37,18 @@ a {
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
-  gap: 5rem;
+  gap: 3rem;
 }
 
 .container {
   padding: 5% 5%;
   background-color: lightgray;
-}
-
-.container ul {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
 }
 
-.container li {
+.card-item {
   display: flex;
   flex-direction: column;
   border: 3px solid rgb(108, 148, 0);
@@ -60,11 +57,7 @@ a {
   color: white;
 }
 
-.modal img {
-  width: 100%;
-}
-
-.container li img {
+.card-item img {
   width: 100%;
   border-radius: 5px;
 }
@@ -77,51 +70,33 @@ a {
 }
 
 hr {
-  border-top: 1px solid gray;
+  border-top: 1px solid darkgray;
   border-bottom: none;
 }
 
-.card-text hr {
+.card-item hr {
   border-top: 1px solid lightgray;
   border-bottom: none;
 }
 
-.title-like {
+.show-title {
+  width: 65%;
+}
+
+.title-and-likes {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
-.title {
-  width: 75%;
-}
-
-.openBtn {
-  padding: 3% 8%;
+.comment-btn {
+  padding: 2% 8%;
   width: fit-content;
   border: 1px solid white;
   border-radius: 2px;
   color: white;
   background-color: transparent;
-}
-
-form button {
-  padding: 10px 10px;
-  width: 100px;
-  border: none;
-  border-radius: 2px;
-  color: white;
-  background-color: rgb(108, 148, 0);
-}
-
-button:hover {
-  cursor: pointer;
-}
-
-footer {
-  background-color: rgb(20, 20, 20);
-  color: white;
-  padding: 30px 5%;
-  font-size: 0.8rem;
+  font-size: inherit;
 }
 
 .modal-container {
@@ -134,30 +109,30 @@ footer {
   overflow: auto;
   padding: 6%;
   background-color: rgba(0, 0, 0, 0.822);
-  display: none;
 }
 
 .modal {
   display: grid;
   grid-template-columns: 1.5fr 2fr;
   gap: 2%;
-  background-color: lightgray;
-  padding: 2%;
+  background-color: rgb(20, 20, 20);
+  color: white;
+  padding: 4%;
   border-radius: 10px;
 }
 
-.modal h1,
-.modal h2,
-.modal h3,
-.modal h4,
-.modal h5 {
-  margin: 0;
+.modal img {
+  width: 100%;
 }
 
 .modal-content {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
+}
+
+.modal-content h4 {
+  margin-bottom: 10px;
 }
 
 .modal-title {
@@ -175,13 +150,13 @@ footer {
   gap: 0.5rem;
 }
 
-.genre {
+.genres {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
-.genre-tag {
+.genres li {
   background-color: rgb(108, 148, 0);
   padding: 3px 10px;
   width: fit-content;
@@ -198,9 +173,9 @@ footer {
   border-radius: 5px;
 }
 
-.single-comment {
-  /* border-bottom: 1px solid lightgray; */
+.display-comments li {
   padding: 4px 10px;
+  margin-bottom: 4px;
 }
 
 form {
@@ -215,10 +190,97 @@ textarea {
   padding: 5px;
   border: 1px solid gray;
   border-radius: 4px;
+}
 
-  /* background-color: darkgray; */
+form button {
+  padding: 10px 10px;
+  width: 100px;
+  border: none;
+  border-radius: 2px;
+  color: white;
+  background-color: rgb(108, 148, 0);
+}
+
+button:hover {
+  cursor: pointer;
+  color: rgb(108, 148, 0);
+  background-color: white;
 }
 
 .fa-star {
   color: orange;
+}
+
+footer {
+  background-color: rgb(20, 20, 20);
+  color: white;
+  padding: 30px 5%;
+  font-size: 0.8rem;
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .logo {
+    height: 20px;
+  }
+
+  .nav-list {
+    display: none;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .show-title {
+    width: 75%;
+  }
+
+  .comment-btn {
+    padding: 2% 8%;
+    width: fit-content;
+    border: 1px solid white;
+    border-radius: 2px;
+    color: white;
+    background-color: transparent;
+    font-size: inherit;
+  }
+
+  button:hover {
+    cursor: pointer;
+  }
+
+  .modal-container {
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: auto;
+    padding: 6%;
+    background-color: rgba(0, 0, 0, 0.822);
+  }
+
+  .modal {
+    display: flex;
+    flex-direction: column;
+    gap: 2%;
+  }
+
+  .fa-times {
+    display: none;
+  }
+
+  .modal img {
+    width: 100%;
+    margin-bottom: 2%;
+  }
+
+  footer {
+    text-align: center;
+  }
 }
