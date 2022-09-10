@@ -98,23 +98,6 @@ hr {
   font-size: inherit;
 }
 
-button:hover {
-  cursor: pointer;
-  color: rgb(108, 148, 0);
-  background-color: white;
-}
-
-/* .modal-container {
-  position: fixed;
-  z-index: 100;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  overflow: auto;
-  padding: 6%;
-  background-color: rgba(0, 0, 0, 0.822);
-} */
 .popup {
   width: 70vw;
   margin: 10px auto;
@@ -227,6 +210,12 @@ form button {
   border-radius: 2px;
   color: white;
   background-color: rgb(108, 148, 0);
+}
+
+button:hover {
+  cursor: pointer;
+  color: rgb(108, 148, 0);
+  background-color: white;
 }
 
 .fa-star {
