@@ -130,9 +130,9 @@ document.addEventListener('click', async (e) => {
   const comList = await getComments(id);
   const MoveInfo = await getData(id);
   await display(MoveInfo, id, comList);
-  const overlay = document.querySelector('.overlay');
-  const popup = document.querySelector('.popup');
-  popup.classList.add('active');
+  const container = document.querySelector('.modal-container');
+  container.style.display = 'none';
+
 
   displayCom(comList);
 });
@@ -152,6 +152,7 @@ const display = async (movieInfo, id, comList) => {
   const popup = document.querySelector('.popup');
   popup.innerHTML = `
       <div class="description">
+      <button type="button" class="closeBtn">X</button>
         <div>
           <a href="${movie.network.officialSite}"><img src="${movie.image.medium}" class = "image" id = "movie-img" alt=""></a>
           <div class = "summary-tag">
@@ -177,6 +178,12 @@ const display = async (movieInfo, id, comList) => {
           </ul>
         </div>
       </ul>`;
+
+  const close = document.querySelector('.closeBtn');
+  close.addEventListener('click', () => {
+    document.querySelector('.modal-container').style.display = 'grid';
+    document.querySelector('.popup').style.display = 'none';
+  })
 }
 
 const displayCom = async (MoveInfo) => {
@@ -187,6 +194,7 @@ const displayCom = async (MoveInfo) => {
     commentList.innerHTML += `<li class = "listCom">${item.username}: ${item.comment} <br> :${item.creation_date.slice(-5, -1)}</li>`;
   });
 };
+
 document.addEventListener('click', async (e) => {
   if (!e.target.matches('.submit')) {
     return;
