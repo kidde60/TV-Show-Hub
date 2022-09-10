@@ -1,4 +1,6 @@
-import { display } from "./popup.js";
+import { display } from './popup.js';
+import { getData } from './tvApi.js';
+import { displayCom } from './popup.js';
 
 const tvId = 'MjgCDPvMKfBMbwFq4McF';
 const fetchLikeApi = async () => {

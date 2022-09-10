@@ -1,6 +1,5 @@
 /* eslint-disable no-use-before-define */
 
-import { getData } from './modules/tvApi.js';
 import { fetchLikeApi } from './modules/involvementApi.js';
 import './style.css';
 import Logo from './assets/logo.svg';
