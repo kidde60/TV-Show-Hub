@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const tvShowApi = async () => {
   const fetchResult = await fetch('https://api.tvmaze.com/shows');
   const ShowResult = await fetchResult.json();
-  return ShowResult;
+  return ShowResult.slice(9, 29);
 };
 window.onload = tvShowApi();
 const contCount = (array) => array.length;
