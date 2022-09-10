@@ -1,8 +1,8 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Movies & TV Shows Hub
+# TV Shows Hub
 
-> This project requires us to build a web application using external APIs. We have selected an API that provides data about movies and TV shows and have built the web app around it.
+> This project requires us to build a web application using external APIs. We have selected an API that provides data about TV shows and have built the web app around it.
 
 
 ## Built With
@@ -14,6 +14,7 @@
 ## Live Demo
 
 [Live Demo]()
+[Vide Demo](./video/JSCapstone.mp4)
 
 
 ## Getting Started
@@ -64,4 +65,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is [MIT](./LICENSE) licensed.
+This project is [MIT](./MIT.md) licensed.
