@@ -55,13 +55,13 @@ const displayShow = async () => {
         submitNewLike(id);
         thumb.disabled = true;
         icon.style.color = 'orange';
-      })
+      });
     });
 
     container.appendChild(cardItem);
     const totalLikes = document.querySelectorAll('.total-likes');
     totalLikes.forEach((like) => {
-      if (like === NaN) {
+      if (like.innerText === 'NaN likes') {
         like.innerText = '0 likes';
       } else if (like.innerText === '1 likes') {
         like.innerText = '1 like';
@@ -88,17 +88,6 @@ const submitNewLike = async (id) => {
   });
 };
 
-// Popup Modal
-const postApp = async () => {
-  const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/', {
-    method: 'POST',
-    headers: {
-      'Content-type': 'application/json; charest=UTF-8',
-    },
-  });
-  const data = await response.json();
-  return data;
-}
 const postComments = async (id, name, com) => {
   await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/4va6c4ouZmpzSETsANV3/comments', {
     method: 'POST',
@@ -133,8 +122,8 @@ document.addEventListener('click', async (e) => {
 const getData = async (id) => {
   const movieInfo = await fetch(`https://api.tvmaze.com/shows/${id}`).then((result) => result.json());
   return movieInfo;
-}
-const countComments = (number) => number.length
+};
+const countComments = (number) => number.length;
 const display = async (movieInfo, id, comList) => {
   const show = await movieInfo;
   const array = await comList;
@@ -185,7 +174,7 @@ const display = async (movieInfo, id, comList) => {
         </div>
       </div>
     </div>`;
-  }
+};
 
 const displayCom = async (showInfo) => {
   const commentList = document.querySelector('.display-comments');

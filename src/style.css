@@ -99,12 +99,6 @@ hr {
   font-size: inherit;
 }
 
-button:hover {
-  cursor: pointer;
-  color: rgb(108, 148, 0);
-  background-color: white;
-}
-
 .modal-container {
   position: fixed;
   z-index: 100;
@@ -207,6 +201,12 @@ form button {
   background-color: rgb(108, 148, 0);
 }
 
+button:hover {
+  cursor: pointer;
+  color: rgb(108, 148, 0);
+  background-color: white;
+}
+
 .fa-star {
   color: orange;
 }
@@ -224,21 +224,21 @@ footer {
   .logo {
     height: 20px;
   }
-  
+
   .nav-list {
     display: none;
   }
-  
+
   .container {
     display: flex;
     flex-direction: column;
     gap: 2rem;
   }
-  
+
   .show-title {
     width: 75%;
   }
-  
+
   .comment-btn {
     padding: 2% 8%;
     width: fit-content;
@@ -248,11 +248,11 @@ footer {
     background-color: transparent;
     font-size: inherit;
   }
-  
+
   button:hover {
     cursor: pointer;
   }
-  
+
   .modal-container {
     position: fixed;
     z-index: 100;
@@ -264,7 +264,7 @@ footer {
     padding: 6%;
     background-color: rgba(0, 0, 0, 0.822);
   }
-  
+
   .modal {
     display: flex;
     flex-direction: column;
@@ -274,12 +274,12 @@ footer {
   .fa-times {
     display: none;
   }
-  
+
   .modal img {
     width: 100%;
     margin-bottom: 2%;
   }
-  
+
   footer {
     text-align: center;
   }
