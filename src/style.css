@@ -41,7 +41,7 @@ a {
 
 .container {
   padding: 5% 5%;
-  background-color: lightgray;
+  background-color: rgb(20, 20, 20);
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
@@ -51,14 +51,15 @@ a {
   display: flex;
   flex-direction: column;
   border: 3px solid rgb(108, 148, 0);
-  border-radius: 8px;
-  background-color: rgb(108, 148, 0);
+  border-radius: 6px;
   color: white;
+  justify-content: space-between;
 }
 
 .card-item img {
   width: 100%;
-  border-radius: 5px;
+  border-radius: 6px;
+  sheight: 600px;
 }
 
 .card-text {
@@ -66,123 +67,134 @@ a {
   flex-direction: column;
   gap: 1rem;
   padding: 3%;
+  
 }
 
-hr {
-  border-top: 1px solid darkgray;
-  border-bottom: none;
+.rating-container {
+  display: inline-block;
 }
 
-.card-item hr {
-  border-top: 1px solid lightgray;
-  border-bottom: none;
+.rating-value {
+  background-color: orange;
+  color: black;
+  padding: 0 3px;
+  border-radius: 3px;
 }
 
-.show-title {
-  width: 65%;
+
+.show-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.title-and-likes {
+.likes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.comment {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* .title-and-likes {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+} */
 
-.comment-btn {
-  padding: 2% 8%;
+.comment button,
+.comment button:hover {
   width: fit-content;
-  border: 1px solid white;
-  border-radius: 2px;
+  border: none;
   color: white;
   background-color: transparent;
   font-size: inherit;
+  cursor: pointer;
 }
 
 .popup {
-  width: 70vw;
-  margin: 10px auto;
-  background: grey;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1.5%;
+  display: none;
 }
 
-.description {
+/* .description {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
-}
+} */
 
-.closeBtn {
+/* .close-btn {
   font-size: 30px;
   padding: 10px;
   background: grey;
   border: none;
-}
+} */
 
-.image {
+/* .image {
   width: 100%;
-}
+} */
 
 .modal {
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 20px;
-  background-color: rgb(20, 20, 20);
-  color: white;
-  padding: 4%;
-  border-radius: 10px;
+  background-color: #fefefe;
+  margin: 0 auto;
+  padding: 1.5%;
+  border: 1px solid #fefefe;
+  width: 70%;
 }
 
-.modal img {
-  width: 100%;
+.close-btn {
+  float: right;
+  cursor: pointer;
+  font-size: 25px;
+  color: rgb(108, 148, 0);
 }
 
 .modal-content {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr;
+  gap: 2%;
+}
+
+#show-img {
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.text-bubble {
+  margin-top: 1%;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+/* .text-bubble li {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
-}
+} */
 
-.modal-content h4 {
-  margin-bottom: 10px;
-}
 
-.modal-title {
-  display: flex;
-  justify-content: space-between;
-}
+/* .modal-details {
+  flex: 2;
+  padding-left: 20px;
+} */
 
-.modal-title a:hover {
-  color: darkgreen;
-}
-
-.modal-sub-title {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.genres {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.genres li {
-  background-color: rgb(108, 148, 0);
-  padding: 3px 10px;
-  width: fit-content;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  color: white;
-}
-
-.all-comments {
+/* .all-comments {
   display: flex;
   flex-direction: column;
   gap: 5px;
   border: 1px solid gray;
   border-radius: 5px;
-}
+} */
 
 .display-comments li {
   padding: 4px 10px;
@@ -192,14 +204,13 @@ hr {
 .form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
 }
 
 input,
 textarea {
   font-size: inherit;
   padding: 5px;
-  border: 1px solid gray;
+  border: 1px solid rgb(108, 148, 0);
   border-radius: 4px;
 }
 
@@ -210,12 +221,16 @@ textarea {
   border-radius: 2px;
   color: white;
   background-color: rgb(108, 148, 0);
+  margin-top: 20px;
 }
 
-button:hover {
+.form button:hover {
   cursor: pointer;
   color: rgb(108, 148, 0);
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0);
+  border: 1px solid rgb(108, 148, 0);
+  border-radius: 2px;
+  margin-top: 20px;
 }
 
 .fa-star {
