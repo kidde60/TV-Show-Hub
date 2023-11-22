@@ -4,7 +4,6 @@
 
 > This project requires us to build a web application using external APIs. We have selected an API that provides data about TV shows and have built the web app around it.
 
-
 ## Built With
 
 - Major languages: HTML/CSS and JavaScript
